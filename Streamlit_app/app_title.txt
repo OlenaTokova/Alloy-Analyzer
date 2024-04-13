@@ -1,0 +1,20 @@
+Code is a Streamlit application designed to interact with the arXiv API to fetch, display, and summarize scholarly articles related to a user-specified query, such as "machine learning." It demonstrates an effective use of Python libraries for HTTP requests, XML parsing, data manipulation, and utilizing machine learning models for text summarization.
+
+Overview of the Code Functionality:
+Fetching Metadata from arXiv:
+
+The fetch_arxiv_metadata function constructs and sends a GET request to the arXiv API with a user-defined query and a specified maximum number of results. It retrieves the metadata of articles as XML content.
+Parsing XML Content:
+
+parse_metadata takes the XML response from the arXiv API and extracts titles, abstracts, and article links using BeautifulSoup for XML parsing.
+Text Summarization:
+
+Initializes a text summarization pipeline using Hugging Face's transformers library with the model "sshleifer/distilbart-cnn-12-6".
+The summarize_abstracts function applies this pipeline to the list of abstracts, producing a summarized version of each.
+Streamlit Interface:
+
+Utilizes Streamlit to create an interactive web interface where users can input a search query and the maximum number of articles to fetch and summarize.
+Once the user initiates the fetch process, the application displays a spinner indicating that the articles are being fetched and summarized.
+Results are presented in a pandas DataFrame, shown directly in the Streamlit application, providing a clear and structured overview of article titles, their summaries, and links to the full articles on arXiv.
+Report:
+This Streamlit application offers a practical tool for researchers, educators, and enthusiasts to quickly access and comprehend the latest scholarly articles in their field of interest. By entering a search term and specifying how many articles to retrieve, users can efficiently get a snapshot of recent publications, including succinct summaries that highlight the essence of each article's contribution.

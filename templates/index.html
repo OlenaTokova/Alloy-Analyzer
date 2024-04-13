@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Composition Data</title>
+</head>
+<body>
+    <h1>Steel Composition Data</h1>
+    <form method="POST">
+        Enter row number: <input type="number" name="row_number">
+        <input type="submit" value="Get Data">
+    </form>
+    {% if row_data %}
+    <table>
+        <tr>
+            {% for key, value in row_data.items() %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for value in row_data.values() %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    {% endif %}
+</body>
+</html>
